@@ -1,25 +1,3 @@
-"""
-words_file = open('CROSSWD.txt','r')
-
-print(type(words_file))
-words = []
-for line in words_file:
-    #words.append(line)
-    print(line.strip())
-"""
-# print([x for x in dir(words_file) if '_' != x[0]])
-
-# data = [1, 3, 2, 8, 5, 6, 10]
-
-# print([2*x for x in data if x % 2 == 0])
-
-# print(words_file.readline())
-# print(words_file.readline())
-
-# for line in words_file:
-#    print(line)
-
-
 # FUNCTION 1:
 
 def more_than_20(file):
@@ -54,3 +32,13 @@ print(uses_only("banana", "bn"))
 # FUNCTION 4:
 
 def all_uses_only(file, letters):
+    result = []
+    with open(file, 'r') as f:
+        for line in f:
+            word = line.strip()
+            if uses_only(word, letters):
+                result.append(word)
+    return result
+
+
+print(all_uses_only("CROSSWD.txt", 'abn'))
